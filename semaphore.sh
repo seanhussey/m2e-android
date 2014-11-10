@@ -13,7 +13,7 @@ echo yes | sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true |  sudo debconf-set-selections
-echo yes | sudo apt-get install --force-yes libgd2-xpm lib32z1 lib32ncurses5 lib32bz2-1.0 xvfb git oracle-java7-installer
+echo yes | sudo apt-get install --force-yes lib32z1 lib32ncurses5 lib32bz2-1.0 xvfb git oracle-java7-installer
 echo yes | android update sdk --filter platform-tools,build-tools-21.1.1,android-18,addon-google_apis-google-18,android-10,android-7,extra-android-support,sysimg-16 --no-ui --force
 if [ -d "/maven-android-sdk-deployer" ]; then
   rm -Rf maven-android-sdk-deployer
