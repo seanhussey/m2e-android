@@ -21,7 +21,7 @@ mvn install -P 4.3
 Xvfb :99 -ac -screen 0 1024x768x24 &
 export DISPLAY=:99.0
 cd /vagrant
-echo adtUsed=true$'\n'lastSdkPath=$ANDROID_HOME > ~/.android/ddms.cfg
+echo adtUsed=true$'\n'lastSdkPath=$ANDROID_HOME$'\n'pingId=844 > ~/.android/ddms.cfg
 mvn --file org.sonatype.aether/pom.xml clean install
 mvn -e clean install -Dtycho.showEclipseLog=true
 mvn -e --file me.gladwell.eclipse.m2e.android.test/pom.xml -Dtarget.platform=indigo -Dtycho.showEclipseLog=true verify
