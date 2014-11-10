@@ -14,7 +14,7 @@ sudo apt-get update
 echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true |  sudo debconf-set-selections
 echo yes | sudo apt-get install --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch xvfb git oracle-java7-installer
-echo yes | android update sdk --filter platform-tools,build-tools-21.1.0,android-18,addon-google_apis-google-18,android-10,android-7,extra-android-support,sysimg-16 --no-ui --force
+echo yes | android update sdk --filter platform-tools,build-tools-21.1.1,android-18,addon-google_apis-google-18,android-10,android-7,extra-android-support,sysimg-16 --no-ui --force
 git clone https://github.com/mosabua/maven-android-sdk-deployer.git
 cd maven-android-sdk-deployer
 mvn install -P 4.3
@@ -24,6 +24,6 @@ cd /vagrant
 echo adtUsed=true$'\n'lastSdkPath=$ANDROID_HOME > ~/.android/ddms.cfg
 mvn --file org.sonatype.aether/pom.xml clean install
 mvn -e clean install -Dtycho.showEclipseLog=true
-mvn -e clean install -Dtycho.showEclipseLog=true -Dtarget.platform=indigo
-mvn -e clean install -Dtycho.showEclipseLog=true -Dtarget.platform=kepler
-mvn -e clean install -Dtycho.showEclipseLog=true -Dtarget.platform=juno
+mvn -e --file me.gladwell.eclipse.m2e.android.test/pom.xml -Dtarget.platform=indigo -Dtycho.showEclipseLog=true verify
+mvn -e --file me.gladwell.eclipse.m2e.android.test/pom.xml -Dtarget.platform=kepler -Dtycho.showEclipseLog=true verify
+mvn -e --file me.gladwell.eclipse.m2e.android.test/pom.xml -Dtarget.platform=juno -Dtycho.showEclipseLog=true verify
