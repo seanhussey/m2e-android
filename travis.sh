@@ -24,3 +24,6 @@ cd /vagrant
 echo adtUsed=true$'\n'lastSdkPath=$ANDROID_HOME > ~/.android/ddms.cfg
 mvn --file org.sonatype.aether/pom.xml clean install
 mvn -e clean install -Dtycho.showEclipseLog=true
+mvn -e clean install -Dtycho.showEclipseLog=true -Dtarget.platform=indigo
+mvn -e clean install -Dtycho.showEclipseLog=true -Dtarget.platform=kepler
+mvn -e clean install -Dtycho.showEclipseLog=true -Dtarget.platform=juno
