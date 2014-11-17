@@ -22,4 +22,4 @@ Xvfb :99 -ac -screen 0 1024x768x24 &
 export DISPLAY=:99.0
 cd /vagrant
 echo adtUsed=true$'\n'lastSdkPath=$ANDROID_HOME$'\n'pingId=844 > ~/.android/ddms.cfg
-mvn -e clean install -Dtycho.showEclipseLog=true
+mvn -e clean install -Dtycho.showEclipseLog=true -Dtycho.disableP2Mirrors=true
